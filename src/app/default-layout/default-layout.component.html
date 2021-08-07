@@ -1,0 +1,25 @@
+<app-header
+  [navbarBrandRouterLink]="['view/about']"
+  [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 250, height: 40, alt: 'SAP Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/logo.svg', width: 30, height: 30, alt: 'SAP Logo'}"
+  [sidebarToggler]="'lg'">
+  &nbsp;&nbsp;<strong>Service Agent by SAP</strong>
+  <ul class="nav navbar-nav d-md-down-none"></ul>
+  <ul class="nav navbar-nav ml-auto"></ul>
+</app-header>
+<div class="app-body">
+  <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] ></app-sidebar-nav>
+
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div><!-- /.container-fluid -->
+  </main>
+</div>
+<app-footer>
+  <span>2021 Mongy.</span>
+</app-footer>

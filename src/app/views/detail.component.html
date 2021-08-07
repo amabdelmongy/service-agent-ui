@@ -1,0 +1,138 @@
+<div class='animated fadeIn'>
+  <div class='row'>
+    <div class='col-lg-12'>
+      <div class='card'>
+        <div class='card-header'>
+          {{ title }}
+        </div>
+        <div class='card-body' *ngIf="serviceAgent">
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Service Agent Id</strong>
+            </label>
+            <div class='col-md-9'>
+              {{ serviceAgent.id }}
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Name</strong>
+            </label>
+            <div class='col-md-9'>
+              {{ serviceAgent.name }}
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3'>
+              <span><strong>Api Details</strong></span>
+            </label>
+            <div class='col-md-9 row'>
+              {{ serviceAgent.apiEndpointAction }} :
+              {{ serviceAgent.apiEndpoint }}
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3'><strong>Request Headers</strong></label>
+            <div class='col-md-9'>
+              <p-table [value]="serviceAgent.headers">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                  <tr>
+                    <td>{{item.key}}</td>
+                    <td>{{item.value}}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Request Body</strong>
+            </label>
+            <div class='col-md-9'>
+              <textarea pInputTextarea [rows]="10" [cols]="30" [value]='serviceAgent.body' class='form-control'
+                placeholder='Body'>
+              </textarea>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Status</strong>
+            </label>
+            <div class='col-md-9 row'>
+              {{ serviceAgent.status }}
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Submitted</strong>
+            </label>
+            <div class='col-md-9 row'>
+              {{serviceAgent.submitted | date : 'dd-MM-yyyy'}}
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Execution</strong>
+            </label>
+            <div class='col-md-9 row'>
+              {{serviceAgent.execution | date : 'dd-MM-yyyy'}}
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Response Body</strong>
+            </label>
+            <div class='col-md-9 row'>
+              <textarea pInputTextarea [rows]="10" [cols]="30" [value]='serviceAgent.responseBody' class='form-control'
+                placeholder='Body'>
+            </textarea>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Response Headers</strong>
+            </label>
+            <div class='col-md-9 row'>
+              <p-table [value]="serviceAgent.responseHeaders">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                  <tr>
+                    <td>{{item.key}}</td>
+                    <td>{{item.value}}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Last Updated Date</strong>
+            </label>
+            <div class='col-md-9 row'>
+              {{ serviceAgent.lastUpdatedDate | date : 'dd-MM-yyyy'}}
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label class='col-md-3 col-form-label'>
+              <strong>Failed Details</strong>
+            </label>
+            <div class='col-md-9 row'>
+              {{ serviceAgent.failedDetails }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
