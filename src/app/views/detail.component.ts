@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from './services/api.service';
 import { ServiceAgentDetails } from './models/model';
@@ -7,8 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   templateUrl: 'detail.component.html'
 })
-export class DetailComponent {
-  title = 'Service Agent details'
+export class DetailComponent implements OnInit {
+  title = 'Service Agent details';
   serviceAgent: ServiceAgentDetails;
   constructor(
     private apiService: ApiService,
@@ -19,9 +19,10 @@ export class DetailComponent {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        let id = params['id'];
-        if (id)
+        const id = params['id'];
+        if (id) {
           this.getServiceAgentDetailsById(id);
+        }
       }
     );
   }

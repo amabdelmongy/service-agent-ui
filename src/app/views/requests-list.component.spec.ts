@@ -1,6 +1,6 @@
 import { RouterTestingModule } from '@angular/router/testing';
 import { TestBed, waitForAsync, ComponentFixture } from '@angular/core/testing';
-import { RequestsList } from './requests-list.component';
+import { RequestsListComponent } from './requests-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpRequestInterceptorMock } from './services/http-request-interceptor.mock';
@@ -14,13 +14,13 @@ import { CalendarModule } from 'primeng/calendar';
 import { TableModule } from 'primeng/table';
 
 describe('requests-list component', () => {
-  let requestsListComponent: RequestsList;
+  let requestsListComponent: RequestsListComponent;
   let mockToastrService: jasmine.SpyObj<ToastrService>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
-        RequestsList
+        RequestsListComponent
       ],
       imports: [
         RouterTestingModule,
@@ -50,7 +50,7 @@ describe('requests-list component', () => {
   }));
 
   beforeEach(() => {
-    let fixture = TestBed.createComponent(RequestsList);
+    const fixture = TestBed.createComponent(RequestsListComponent);
     requestsListComponent = fixture.componentInstance;
     fixture.detectChanges();
   });

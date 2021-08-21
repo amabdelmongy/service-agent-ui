@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormComponent } from './form.component';
-import { RequestsList } from './requests-list.component';
+import { RequestsListComponent } from './requests-list.component';
 import { AboutComponent } from './about.component';
 import { DetailComponent } from './detail.component';
 
@@ -25,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'requests',
-        component: RequestsList,
+        component: RequestsListComponent,
         data: {
           title: 'Requests'
         }

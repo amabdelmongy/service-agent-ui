@@ -14,10 +14,10 @@
               <div class='col-md-9'>
                 <input type='text' formControlName='name' required class='form-control col-md-11'
                   placeholder='Enter Name' />
-                <span *ngIf="(ServiceAgentform.get('name').touched ||
-                    ServiceAgentform.get('name').dirty) &&
-                    ServiceAgentform.get('name').errors" class='help-block alert-danger col-md-1'>
-                  <span *ngIf="ServiceAgentform.get('name').errors.required">
+                <span *ngIf='(ServiceAgentform.name?.touched || ServiceAgentform.name?.dirty)
+                && ServiceAgentform.name?.errors'
+                    class='help-block alert-danger col-md-1'>
+                  <span *ngIf='ServiceAgentform.name?.errors.required'>
                     *
                   </span>
                 </span>
@@ -32,10 +32,11 @@
                 </p-dropdown>
                 <input type='text' formControlName='apiEndpoint' class='form-control col-md-11'
                   placeholder='Api endpoint' />
-                <span class='help-block help-block alert-danger col-md-1' *ngIf="(ServiceAgentform.get('apiEndpoint').touched ||
-                  ServiceAgentform.get('apiEndpoint').dirty) &&
-                  ServiceAgentform.get('apiEndpoint').errors">
-                  <span *ngIf="ServiceAgentform.get('apiEndpoint').errors.required">
+                <span class='help-block help-block alert-danger col-md-1'
+                 *ngIf='(ServiceAgentform.apiEndpoint?.touched ||
+                  ServiceAgentform.apiEndpoint?.dirty) &&
+                  ServiceAgentform.apiEndpoint?.errors'>
+                  <span *ngIf='ServiceAgentform.apiEndpoint?.errors.required'>
                     *
                   </span>
                 </span>
@@ -44,7 +45,7 @@
             <div class='form-group row'>
               <label class='col-md-3'><strong>Headers</strong></label>
               <div class='col-md-9'>
-                <p-table [value]="ServiceAgentform.get('headers').value">
+                <p-table [value]='ServiceAgentform.headers?.value'>
                   <ng-template pTemplate='header'>
                     <tr>
                       <th>Key</th>
@@ -95,7 +96,7 @@
               </div>
             </div>
             <div class='card-footer'>
-              <button type='submit' id="submitBtn"
+              <button type='submit' id='submitBtn'
                [disabled]='!ServiceAgentform.valid || isAddedHeaderValid()'
                 class='btn btn-sm btn-primary'>
                 <i class='fa fa-dot-circle-o'></i>

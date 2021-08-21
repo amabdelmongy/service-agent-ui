@@ -4,7 +4,7 @@ import { FormComponent } from './form.Component';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {HttpRequestInterceptorMock}from './services/http-request-interceptor.mock';
+import {HttpRequestInterceptorMock} from './services/http-request-interceptor.mock';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { AppConfigService } from './services/app-config.service';
 import { DropdownModule } from 'primeng/dropdown';
@@ -79,21 +79,21 @@ describe('Form Component', () => {
   });
 
   it('should name field required', () => {
-    let name = formComponent.ServiceAgentform.controls['name'];
-    let errors = name.errors || {};
+    const name = formComponent.ServiceAgentform.controls['name'];
+    const errors = name.errors || {};
     expect(errors['required']).toBeTruthy();
   });
 
   it('should apiEndpoint field required', () => {
-    let apiEndpoint = formComponent.ServiceAgentform.controls['apiEndpoint'];
-    let errors = apiEndpoint.errors || {};
+    const apiEndpoint = formComponent.ServiceAgentform.controls['apiEndpoint'];
+    const errors = apiEndpoint.errors || {};
     expect(errors['required']).toBeTruthy();
   });
 
   it('should apiEndpointAction field required', () => {
-    let apiEndpointAction = formComponent.ServiceAgentform.controls['apiEndpointAction'];
-    apiEndpointAction.setValue('')
-    let errors = apiEndpointAction.errors || {};
+    const apiEndpointAction = formComponent.ServiceAgentform.controls['apiEndpointAction'];
+    apiEndpointAction.setValue('');
+    const errors = apiEndpointAction.errors || {};
     expect(errors['required']).toBeTruthy();
   });
 

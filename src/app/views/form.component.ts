@@ -3,11 +3,12 @@ import { ApiService } from './services/api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceAgentResult } from './models/model';
+import { OnInit } from '@angular/core';
 
 @Component({
   templateUrl: 'form.component.html'
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
   title = 'Request Service Agent';
   result: ServiceAgentResult;
   ServiceAgentform: FormGroup;
@@ -16,7 +17,7 @@ export class FormComponent {
       'Get',
       'Post',
       'Put',
-      'Delete'
+      'Deconste'
     ];
 
   ngOnInit(): void {
@@ -62,8 +63,8 @@ export class FormComponent {
 
   addHeader() {
     if (this.isAddedHeaderValid()) {
-      let key = this.ServiceAgentform.get('headerAddedKey');
-      let value = this.ServiceAgentform.get('headerAddedValue');
+      const key = this.ServiceAgentform.get('headerAddedKey');
+      const value = this.ServiceAgentform.get('headerAddedValue');
       this.ServiceAgentform.
         get('headers').
         value.
@@ -71,14 +72,14 @@ export class FormComponent {
           Key: key.value,
           Value: value.value
         });
-      key.setValue("");
-      value.setValue("");
+      key.setValue('');
+      value.setValue('');
     }
   }
 
   isAddedHeaderValid() {
-    let key = this.ServiceAgentform.get('headerAddedKey').value;
-    let value = this.ServiceAgentform.get('headerAddedValue').value;
+    const key = this.ServiceAgentform.get('headerAddedKey').value;
+    const value = this.ServiceAgentform.get('headerAddedValue').value;
     return (key &&
       key.trim() !== '' &&
       value &&

@@ -58,7 +58,7 @@ describe('details component', () => {
   }));
 
   beforeEach(() => {
-    let fixture = TestBed.createComponent(DetailComponent);
+    const fixture = TestBed.createComponent(DetailComponent);
     detailComponent = fixture.componentInstance;
     fixture.detectChanges();
   });

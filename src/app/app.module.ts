@@ -43,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     PerfectScrollbarModule,
     IconModule,
     IconSetModule.forRoot(),
-    ToastrModule.forRoot({positionClass :'toast-bottom-right'}),
+    ToastrModule.forRoot({positionClass: 'toast-bottom-right' }),
     NgProgressModule,
     NgProgressHttpModule,
     HttpClientModule

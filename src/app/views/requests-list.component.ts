@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from './services/api.service';
 import { ServiceAgent } from './models/model';
@@ -6,8 +6,8 @@ import { ServiceAgent } from './models/model';
 @Component({
   templateUrl: 'requests-list.component.html'
 })
-export class RequestsList {
-  title = 'All Service Agents'
+export class RequestsListComponent implements OnInit {
+  title = 'All Service Agents';
   serviceAgents: ServiceAgent[];
   isShowFaviourts?: boolean;
   constructor(
@@ -34,8 +34,7 @@ export class RequestsList {
   addFaviourt(serviceAgent: ServiceAgent) {
     serviceAgent.isFavourite = !serviceAgent.isFavourite;
 
-    let favouriteDto =
-    {
+    const favouriteDto = {
       id: serviceAgent.id,
       isFavourite: serviceAgent.isFavourite
     };

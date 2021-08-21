@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { FormComponent } from './form.component';
-import { RequestsList } from './requests-list.component';
+import { RequestsListComponent } from './requests-list.component';
 import { ViewsRoutingModule } from './views-routing.module';
 import { ApiService } from './services/api.service';
 import { NgProgressModule } from 'ngx-progressbar';
@@ -30,7 +30,7 @@ import {TableModule} from 'primeng/table';
   ],
   declarations: [
     FormComponent,
-    RequestsList,
+    RequestsListComponent,
     DetailComponent
   ],
   providers: [

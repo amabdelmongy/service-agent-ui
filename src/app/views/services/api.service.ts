@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { FavouriteDto, ServiceAgent, ServiceAgentDetails, ServiceAgentInput } from '../models/model';
 import { AppConfigService } from './app-config.service';
 
-let httpOptions = {
+const httpOptions = {
   headers: new HttpHeaders(
     {
       'Content-Type': 'application/json',
@@ -36,12 +36,12 @@ export class ApiService {
   }
 
   scheduleServiceAgent(serviceAgentInput: ServiceAgentInput): Observable<any> {
-    let body = JSON.stringify(serviceAgentInput);
-    return this.http.post(`${this.apiBaseUrl}service-agent/schedule-service-agent/`, body, httpOptions)
+    const body = JSON.stringify(serviceAgentInput);
+    return this.http.post(`${this.apiBaseUrl}service-agent/schedule-service-agent/`, body, httpOptions);
   }
 
   updateIsFavirote(favouriteDto: FavouriteDto): Observable<any> {
-    let body = JSON.stringify(favouriteDto);
-    return this.http.put(`${this.apiBaseUrl}service-agent-details/update-is-favourite/`, body, httpOptions)
+    const body = JSON.stringify(favouriteDto);
+    return this.http.put(`${this.apiBaseUrl}service-agent-details/update-is-favourite/`, body, httpOptions);
   }
 }

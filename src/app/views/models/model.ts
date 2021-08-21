@@ -40,11 +40,10 @@ export interface ServiceAgentDetails {
 
 export interface HeaderItem {
     key: string;
-    value: string
+    value: string;
 }
 
-export interface FavouriteDto
-{
+export interface FavouriteDto {
     id: string;
     isFavourite: boolean;
 }
